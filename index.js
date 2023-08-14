@@ -3,9 +3,17 @@ const app = express();
 const envConfig = require("./config/config");
 const connectDB = require("./config/db");
 const port = envConfig.PORT || 4000;
+const userRoutes = require("./routes/user.routes");
 
 // Database connection
 connectDB();
+
+// middleware
+app.use(express.json());
+
+// Routes
+app.use('/api',userRoutes);
+
 
 // Base Url
 app.get("/", (req, res) => {
