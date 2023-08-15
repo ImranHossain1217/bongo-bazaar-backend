@@ -9,6 +9,11 @@ module.exports.hashedPassword = async (password) => {
   return hashed;
 };
 
+// match password in login
+module.exports.matchPassword = async (password, dbPassword) => {
+  return bcrypt.compare(password, dbPassword);
+};
+
 // create jwt token
 module.exports.createToken = (user) => {
   return jwt.sign(user, envConfig.JWT_SECRET, { expiresIn: "7d" });
