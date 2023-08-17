@@ -16,5 +16,5 @@ module.exports.matchPassword = async (password, dbPassword) => {
 
 // create jwt token
 module.exports.createToken = (user) => {
-  return jwt.sign(user, envConfig.JWT_SECRET, { expiresIn: "7d" });
+  return jwt.sign(user, envConfig.JWT_SECRET, { expiresIn: "2h" });
 };
